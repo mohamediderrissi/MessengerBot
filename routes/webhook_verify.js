@@ -1,4 +1,5 @@
 const processMessage = require('../processes/message');
+const processPostback = require('../processes/postback');
 
 module.exports = function(app){
   app.get('/webhook', function(req, res) {
@@ -23,6 +24,9 @@ module.exports = function(app){
           console.log(event);
           if (event.message){
              processMessage(event);
+          }
+          else if(event.postback){
+            processPostback(event);
           }
       });
     });

@@ -1,3 +1,4 @@
+const { response } = require('express');
 const senderAction = require('../templates/senderAction');
 const sendMessage = require('../templates/sendMessage');
 
@@ -45,7 +46,32 @@ const processMessage = (event) => {
     //   }
     // }
     // else {
-        sendMessage(senderID, message);
+      const response = {
+        "attachment": {
+          "type": "template",
+          "payload": {
+            "template_type": "generic",
+            "elements": [{
+              "title": " Très bien et vous ?",
+              "subtitle": "Tapper une button pour répondre.",
+              "buttons": [
+                {
+                  "type": "postback",
+                  "title": " Je vais bien, Merci !",
+                  "payload": "yes",
+                },
+                {
+                  "type": "postback",
+                  "title": "Non, ça ne va pas !",
+                  "payload": "no",
+                }
+              ],
+            }]
+          }
+        }
+      }
+    };
+        sendMessage(senderID, response);
     // }
 }
 };
