@@ -7,7 +7,7 @@ const processMessage = (event) => {
         const senderID = event.sender.id;
         console.log("Received message from senderId: " + senderID);
         console.log("Message is: " + JSON.stringify(message));
-    if (message === "Comment vas-tu ?") {
+    if (message == "Comment vas-tu ?") {
         senderAction(senderID);
         const messageWithOptions = {
                 "text": "Très bien et vous ?",
@@ -27,7 +27,7 @@ const processMessage = (event) => {
       if(message.attachments[0].type == "image")
       {
         senderAction(senderID);
-        sendMessage(senderID, { "text": "Je ne sais pas traiter ce type dedemande" });
+        sendMessage(senderID, { "text": "Je ne sais pas traiter ce type de demande" });
       }
     }
     else {
