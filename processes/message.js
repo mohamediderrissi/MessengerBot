@@ -7,7 +7,7 @@ const processMessage = (event) => {
         const senderID = event.sender.id;
         console.log("Received message from senderId: " + senderID);
         console.log("Message is: " + JSON.stringify(message));
-    if (JSON.stringify(message.text) == "Comment vas-tu ?") {
+    if (message.text === "Comment vas-tu ?") {
       const response = {
         "attachment": {
           "type": "template",
