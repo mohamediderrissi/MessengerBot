@@ -70,7 +70,6 @@ const processMessage = (event) => {
           }
         }
       }
-    };
         sendMessage(senderID, response);
     // }
 }
