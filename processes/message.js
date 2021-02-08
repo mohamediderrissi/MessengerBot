@@ -41,7 +41,7 @@ const processMessage = (event) => {
     //   }
     // }
     // else {
-        sendMessage(senderID, message);
+        sendMessage(senderID, { "text": message.text });
     // }
 }
 };
