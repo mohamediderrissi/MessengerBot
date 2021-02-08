@@ -29,6 +29,19 @@ const processMessage = (event) => {
       {
         senderAction(senderID);
         sendMessage(senderID, { "text": "Je ne sais pas traiter ce type de demande" });
+        const messageWithOptions = {
+          "text": "Très bien et vous ?",
+          "quick_replies":[
+            {
+              "content_type":"text",
+              "title":"Je vais bien, merci ",
+            },{
+              "content_type":"text",
+              "title":"Non, ça ne va pas ",
+            }
+          ]
+        };
+        sendMessage(senderID, messageWithOptions);
       }
     }
     else {
