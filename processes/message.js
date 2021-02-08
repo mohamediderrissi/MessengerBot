@@ -7,7 +7,7 @@ const processMessage = (event) => {
         const senderID = event.sender.id;
         console.log("Received message from senderId: " + senderID);
         console.log("Message is: " + JSON.stringify(message));
-    if (message == "Comment vas-tu ?") {
+    if (message.text == "Comment vas-tu ?") {
         senderAction(senderID);
         const messageWithOptions = {
                 "text": "Très bien et vous ?",
