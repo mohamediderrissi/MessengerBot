@@ -1,4 +1,3 @@
-const { response } = require('express');
 const sendMessage = require('../templates/sendMessage');
 
 const processMessage = (event) => {
@@ -41,7 +40,7 @@ const processMessage = (event) => {
       }
     }
     else {
-        // We send back any text inputs  recived from the user  !
+        // We send back any text inputs  received from the user  !
         sendMessage(senderID, { "text": message.text });
     }
 }

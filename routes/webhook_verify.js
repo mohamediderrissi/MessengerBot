@@ -1,7 +1,6 @@
 const processMessage = require('../processes/message');
-const processPostback = require('../processes/postback');
 
-module.exports = function(app){
+module.exports = (app) => {
   app.get('/webhook', function(req, res) {
      console.log(process.env.VERIFY_TOKEN);
     if (req.query['hub.verify_token'] === process.env.VERIFY_TOKEN){
@@ -24,9 +23,6 @@ module.exports = function(app){
           console.log(event);
           if (event.message){
              processMessage(event);
-          }
-          else if(event.postback){
-            processPostback(event);
           }
       });
     });

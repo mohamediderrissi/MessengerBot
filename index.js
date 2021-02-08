@@ -12,6 +12,7 @@ dotenv.config();
 app.set('port', (process.env.PORT || 3000));
 
 // setup our express application
+
 app.use(morgan('dev')); // log every request to the console.
 app.use(bodyParser.urlencoded({ extended:false }));
 app.use(bodyParser.json()); 
@@ -20,6 +21,6 @@ app.use(bodyParser.json());
 require('./routes/webhook_verify')(app);
 
 // warming up the engines .
-app.listen(app.get('port'), function() {
-  const url = 'http://localhost:' + app.set('port');
-  console.log('Application running on port: ', app.get('port'));});
+app.listen(app.get('port'), () => {
+    console.log('Application running on port: ', app.get('port'));}
+    );
